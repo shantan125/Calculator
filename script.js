@@ -1,63 +1,32 @@
-// script.js
+document.addEventListener('DOMContentLoaded', function(){
+    const display = document.querySelector('.display');
+    const operatorbtn = document.querySelectorAll('.operator');
 
-// Variables to keep track of calculator state
-let displayValue = ""; // Current value shown on the calculator
-let operator = ""; // Operator for calculations
-let firstOperand = null; // First operand in a calculation
+ operatorbtn.forEach(button=>{
+    button.addEventListener('click',function(){
+        const operator = button.value;
+        display.value+=operator;
+    });
+ });
 
-// Function to add a digit to the display
-function appendDigit(digit) {
-  displayValue += digit; // Add the clicked digit to the current display value
-  updateDisplay(); // Update the display on the calculator
-}
+ const numberbtn = document.querySelectorAll('.number');
 
-// Function to set the operator for calculations
-function setOperator(op) {
-  operator = op; // Set the clicked operator
-  if (firstOperand === null) {
-    firstOperand = parseFloat(displayValue); // If it's the first operator, store the current display value as the first operand
-    displayValue = ""; // Clear the display for the next input
-  }
-}
+ numberbtn.forEach(button=>{
+    button.addEventListener('click',function(){
+        const number = button.value;
+        display.value+=number;
+    });
+ });
 
-// Function to clear the display
-function clearDisplay() {
-  displayValue = ""; // Clear the display
-  updateDisplay(); // Update the display on the calculator
-}
+const calculate = document.querySelector('.calculate');
+    calculate.addEventListener("click", function () {
+      display.value = eval(display.value);
+    });
 
-// Function to perform the calculation
-function calculate() {
-  const secondOperand = parseFloat(displayValue); // Parse the second operand from the current display value
-  let result;
+const clearbtn = document.querySelector('.clear');
 
-  // Perform the calculation based on the selected operator
-  switch (operator) {
-    case "+":
-      result = firstOperand + secondOperand;
-      break;
-    case "-":
-      result = firstOperand - secondOperand;
-      break;
-    case "*":
-      result = firstOperand * secondOperand;
-      break;
-    case "/":
-      result = firstOperand / secondOperand;
-      break;
-    default:
-      return; // Invalid operator, exit the function
-  }
+clearbtn.addEventListener('click',function(){
+    display.value='';
+});
 
-  displayValue = result.toString(); // Update the display value with the result
-  updateDisplay(); // Update the display on the calculator
-
-  // Reset for future calculations
-  operator = "";
-  firstOperand = null;
-}
-
-// Function to update the display on the HTML page
-function updateDisplay() {
-  document.getElementById("display").value = displayValue;
-}
+});
