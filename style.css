@@ -29,8 +29,16 @@ button:active {
   border: 5px black solid;
   padding: 10px;
   display: inline-block;
+  text-align: center;
+  background-color: cadetblue;
 }
 #display {
   background-color: aliceblue;
   color: black;
+}
+.keys{
+    background-color: cadetblue;
+    
+    border-radius: 1rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
