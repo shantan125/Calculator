@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="calc">
+        <div>
+            <input type="text" id="display" disabled>
+        </div>
+        <div>
+            <button onclick="appendDigit('7')">7</button>
+            <button onclick="appendDigit('8')">8</button>
+            <button onclick="appendDigit('9')">9</button>
+            <button onclick="setOperator('+')">+</button>
+        </div>
+        <div>
+            <button onclick="appendDigit('4')">4</button>
+            <button onclick="appendDigit('5')">5</button>
+            <button onclick="appendDigit('6')">6</button>
+            <button onclick="setOperator('-')">-</button>
+        </div>
+        <div>
+            <button onclick="appendDigit('1')">7</button>
+            <button onclick="appendDigit('2')">8</button>
+            <button onclick="appendDigit('3')">9</button>
+            <button onclick="setOperator('*')">*</button>
+        </div>
+        <div>
+            <button onclick="appendDigit('0')">0</button>
+            <button onclick="clearDisplay()">C</button>
+            <button onclick="calculate()">=</button>
+            <button onclick="setOperator('/')">/</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
